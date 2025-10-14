@@ -1,0 +1,7 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.home, name='home_my_profile_django'),
+    path('/projects', views.project, name='my_projects')
+]

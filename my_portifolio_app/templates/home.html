@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portifolio Jhonny</title>
+<link rel="stylesheet" href="static/CSS/profile.css">
+</head>
+<body>
+<div class="container">
+  <!-- Avatar -->
+  <div class="avatar">
+    <img src="static/img/profile_eu.png" alt="Avatar" />
+    <div>
+      <a class="link_git" href="https://github.com/JH0nnYGb ">
+      GitHub: Jhonny_S or JH0nnYGb
+      </a>
+    </div>
+  </div>
+  
+
+  <!-- Introdução e interesses -->
+  <div class="intro-and-interests">
+    <div class="intro">
+      My name is Jhonny - Web developmentbrand/designer with 3+ years of experience creating modern, clean, and minimal brands that make a lasting impression.
+    </div>
+
+    <div class="interests">
+      <div class="interests-label">Interests</div>
+      <div class="interest-tags">
+        <div class="interest-tag">🎮 Gaming</div>
+        <div class="interest-tag">🎥 Film Making</div>
+        <div class="interest-tag">🌍 Traveling</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Freelancer e Meetzed lado a lado -->
+  <div class="cards" style="width: 100%;">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Freelancer</div>
+          <div class="card-subtitle">Logo/Brand Designer</div>
+        </div>
+        <div class="card-date">2021 - now</div>
+      </div>
+      <ul class="card-list">
+        <li>Worked on diverse logo and brand identity projects.</li>
+        <li>Collaborated with clients from multiple countries.</li>
+        <li>Developed a versatile design skill set.</li>
+        <li>Adapted to unique challenges and requirements.</li>
+      </ul>
+      <a href="{% url 'my_projects' %}">More</a>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Meetzed</div>
+          <div class="card-subtitle">Graphic Designer</div>
+        </div>
+        <div class="card-date">2020 - 2021</div>
+      </div>
+      <ul class="card-list">
+        <li>Collaboration: Supported Lead Designer on projects.</li>
+        <li>Branding: Crafted unique brand identities.</li>
+        <li>Tools: Used Illustrator, Photoshop & InDesign.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Seções de ferramentas, idiomas, portfolio e detalhes -->
+  <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px;">
+
+    <div class="section" style="flex:1 1 280px;">
+      <div class="section-label">Design Tools</div>
+      <div class="section-items">
+        <div class="tool ">
+          <img  style="width: 50px; height: 50px;" src="https://static.vecteezy.com/system/resources/previews/065/386/871/large_2x/figma-logo-icon-figma-app-editable-transparent-background-premium-social-media-design-for-digital-download-free-png.png" alt="Icon Figma">
+          Figma
+        </div>
+        <div class="tool ">
+          <img style="width: 30px; height: 30px;" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/photoshop-64.svg" alt="Photoshop">
+          Photoshop
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="flex:1 1 280px;">
+      <div class="section-label">Languages</div>
+      <div class="section-items">
+        
+          <div class="tool ">
+            <img  style="width: 25px; height: 25px;" src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" alt="Python Icon">
+            <p>Python</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 20px; height: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png" alt="Javascript Icon">
+            <p>Javascript</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Icon">
+            <p>C++</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://www.jetbrains.com/guide/assets/csharp-logo-265a149e.svg" alt="C# Icon">
+            <p>C#</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PosterSQL Icon">
+            <p>PosterSQL</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="section languages" style="flex:1 1 280px;">
+      <div class="section-label">Languages</div>
+      <div class="section-items" style="gap: 8px;">
+        <img src="https://flagpedia.net/data/flags/w1160/br.webp" alt="BR Flag" />
+        <img src="https://flagcdn.com/w40/us.png" alt="USA Flag" />
+      </div>
+      
+    </div>
+
+    <div class="section" style="flex:1 1 280px;">
+      
+       <div class="section-label">Frameworks/Tolls</div>
+       <div class="section-items">
+        
+        <!-- FRAMEWORKS -->
+          <div class="tool ">
+            <img style="width: 60px; height: 30px;" src="https://static.djangoproject.com/img/logos/django-logo-negative.png" alt="Django Icon">
+            <!-- <p>Django</p> -->
+          </div>
+          <div class="tool ">
+            <img style="width: 60px; height: 30px;" src="https://nodejs.org/static/logos/jsIconGreen.svg" alt="NodeJs Icon">
+            <p>NodeJS</p>
+          </div>
+          <!-- TOLLS  -->
+
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://www.arduino.cc/wiki/static/arduino-app-76bd27c4ce7246825aceb8efe2871f7a.svg" alt="Arduino Icon">
+            <p>Arduino</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="http://voyager.postman.com/logo/postman-logo-icon-orange.svg" alt="Postman Icon">
+            <p>Postman</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git Icon">
+            <p>Git</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow@2x.png" alt="Git Icon">
+            <p>Bootstrap</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg " alt="React Icon">
+            <p>React</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="ReactNative Icon">
+            <p>ReactNative</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/330px-HTML5_logo_and_wordmark.svg.png" alt="Html Icon">
+            <p>HTML</p>
+          </div>
+          <div class="tool ">
+            <img style="width: 30px; height: 30px;" src="https://coryrylan.com/assets/css-CfW5UZaa.svg" alt="CSS Icon">
+            <p>CSS</p>
+          </div>
+       </div>
+    </div>
+
+  </div>
+
+  <!-- Portfolio e Details lado a lado -->
+  <div style="width: 100%; display: flex; gap: 24px; margin-top: 16px; flex-wrap: nowrap;">
+
+    <div class="section portfolio" style="flex:2;">
+      <div class="section-label"><h3>Portfolio</h3></div>
+      <div class="section-items" style="gap: 14px;">
+        <a href="https://github.com/JH0nnYGb" title="GitHub">
+          <img style="width: 15px; height: 15px;" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="">
+          GitHub
+        </a>
+        <a href="https://www.instagram.com/jhonn_ydev/profilecard/?igsh=bndwNjY4bmJwOHp6" title="Instagram">
+          <img style="width: 15px; height: 15px;" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Icone Instagram">
+            Instagram
+        </a>
+        <a href="https://www.youtube.com/@JoneffeSilva" title="Youtube">▶ Youtube</a>
+        <a href="#" title="Dribbble">🎨 Dribbble ... </a>
+      </div>
+    </div>
+
+    <div class="section details" style="flex:1;">
+      <div class="section-label">Contacts</div>
+      <div class="section-items" style=" display: flex; flex-direction: column; gap: 12px;">  
+        <div class="details-item"><span>📧</span> silvajoneffe@gmail.com</div>
+        <div class="details-item"><span>📧</span> https://www.linkedin.com/in/joneffe-silva-dev/</div>
+        <div class="details-item"><span>BR</span>Brazil</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Educação (coluna à direita) -->
+  <div class="education" style="width: 100%; margin-top: 24px;">
+    <div class="edu-item">
+      <div class="edu-item-header">
+        <div class="edu-item-title">Diploma</div>
+        <div class="edu-item-date">2023-2024</div>
+      </div>
+      <div class="edu-item-subtitle">Computer technician  <br>Instituto Federal de Educação, Ciência e Tecnologia, Campus Senhor do Bonfim, Brazil</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-item-header">
+        <div class="edu-item-title">Graduation</div>
+        <div class="edu-item-date">2024-...</div>
+      </div>
+      <div class="edu-item-subtitle">Bachelor's degree in computer science<br>Instituto Federal de Educação, Ciência e Tecnologia, Campus Senhor do Bonfim, Brazil</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

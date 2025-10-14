@@ -1,0 +1,104 @@
+body {
+    background: #0b0b0b;
+    color: #f0f0f0;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .container {
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+
+  /* Card estilo */
+  .card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(79, 163, 255, 0.3);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4fa3ff;
+  }
+
+  .card-subtitle {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  .card-date {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #888;
+  }
+
+  .card-list {
+    list-style: none;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+
+  .card-list li {
+    margin-bottom: 8px;
+  }
+
+  /* Centraliza o FECITEC visualmente como destaque */
+  .cards > .card:first-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 450px;
+    border: 2px solid #4fa3ff;
+  }
+
+  /* Botão de voltar */
+  .back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    background: #222;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+
+  .back-btn:hover {
+    background: #4fa3ff;
+    color: #000;
+  }
