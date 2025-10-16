@@ -40,4 +40,4 @@ dist/
 build/
 
 # Misc
-*.env
+*.myvenv
