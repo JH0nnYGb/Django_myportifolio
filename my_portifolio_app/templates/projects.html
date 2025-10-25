@@ -1,12 +1,15 @@
+{% load static %}
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Projects - Jhonny</title>
-<link rel="stylesheet" href="static/CSS/profile.css">
-<link rel="stylesheet" href="static/CSS/style_projects.css">
+<link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/projects.css' %}">
 </head>
+
 <body>
 <div class="container">
 
@@ -16,74 +19,45 @@
   </div>
 
   <div class="cards">
-
-    <!-- FECITEC como destaque central -->
+    {% for projects in page_obj %}
     <div class="card">
       <div class="card-header">
         <div>
-          <div class="card-title">FECITEC</div>
-          <div class="card-subtitle">Web Platform • Django + Bootstrap</div>
+          <div class="card-title">{{ projects.title }}<div/>
+          <div class="card-subtitle">Web Project<div/> 
         </div>
-        <div class="card-date">2025</div>
+        <div class="card-date">{{ projects.year }}</div>
       </div>
       <ul class="card-list">
-        <li>Platform developed to manage and showcase projects presented at the FECITEC (Science and Technology Fair) of IF Baiano.</li>
-        <li>Built using Django and Bootstrap, ensuring responsiveness and ease of use for organizers and participants.</li>
-        <li>Includes project registration, evaluation interface, and a modern dashboard.</li>
-        <li><a href="https://github.com/JH0nnYGb/fecitec" target="_blank" style="color:#4fa3ff;">View on GitHub</a></li>
+        <li>{{ projects.summary }}</li>
+        {% if projeto.imagem %}
+          <li><img scr="{{ projects.imagem.url }}" alt="{{ projects.title}}"> tyle="width:100%; border-radius:8px;"></li>
+        {% endif %}
+        <li><a href="{{ projeto.link_github }}" target="_blank" style="color:#4fa3ff;">View on GitHub</a></li>
       </ul>
     </div>
-
-    <!-- Outros projetos -->
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">CodeIF</div>
-          <div class="card-subtitle">Educational Platform</div>
-        </div>
-        <div class="card-date">2025</div>
-      </div>
-      <ul class="card-list">
-        <li>Project for learning and community coding challenges at IF Baiano.</li>
-        <li>Organized with GitHub Classroom and Django.</li>
-        <li><a href="https://www.youtube.com/watch?v=oxnW_7xCwpA" style="color:#4fa3ff;">More info soon</a></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">WLNutrition</div>
-          <div class="card-subtitle">Web App • Django + Bootstrap</div>
-        </div>
-        <div class="card-date">2023</div>
-      </div>
-      <ul class="card-list">
-        <li>Application that generates a personalized nutritional table.</li>
-        <li>Includes automatic PDF generation and user data storage.</li>
-        <li>Developed with Django, xhtml2pdf, and Bootstrap.</li>
-        <li><a href="https://github.com/TheJoaoVitorio/WLN-Django" target="_blank" style="color:#4fa3ff;">View on GitHub</a></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Patrik</div>
-          <div class="card-subtitle">Mobile App • React Native</div>
-        </div>
-        <div class="card-date">2024</div>
-      </div>
-      <ul class="card-list">
-        <li>Mobile application developed to assist small rural producers in organizing and managing their products.</li>
-        <li>Built with React Native, focused on simplicity and accessibility for agricultural routines.</li>
-        <li>Developed as part of an academic project; not yet published.</li>
-        <li><a href="#" style="color:red;">Not Published</a></li>
-      </ul>
-    </div>
-
+    {% comment %} Se nao haver projetos {% endcomment %}
+    {% empty %}
+      <p>No projects found.</p> 
+    {% endfor %}
   </div>
 
+  <!-- PAGINAÇÃO -->
+  <div class="pagination" style="text-align:center; margin-top:20px;">
+    {% if page_obj.has_previous %}
+      <a href="?page=1" class="btn">⏮ First</a>
+      <a href="?page={{ page_obj.previous_page_number }}" class="btn">⬅ Prev</a>
+    {% endif %}
+
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="btn">Next ➡</a>
+      <a href="?page={{ page_obj.paginator.num_pages }}" class="btn">Last ⏭</a>
+    {% endif %}
+  </div>  
+
+  <!--VOLTAR PARA PAGINA PRINCIPAL-->
   <div style="text-align:center;">
     <a href="{% url 'home_my_profile_django' %}" class="back-btn">⬅ Back to Portfolio</a>
   </div>
