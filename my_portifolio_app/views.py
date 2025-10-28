@@ -24,3 +24,4 @@ def activities(request):
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'activities.html', {'page_obj': page_obj})
+##
