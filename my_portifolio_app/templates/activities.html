@@ -1,0 +1,45 @@
+{% extends 'base_ expand.html' %} 
+
+{% block title %}My_Activities{% endblock %}
+
+{% block content %}
+    <div class="activities-container">
+        {% for atividade in page_obj %}
+            <div class="activity-card">
+                <div class="activity-header">
+                    <h2>{{ atividade.title_activ }}</h2>
+                    <span class="year">{{ atividade.year_activ }}</span>
+                </div>
+                <p class="summary">{{ atividade.summary_activ }}</p>
+
+                {% if atividade.image_activ %}
+                    <img src="{{ atividade.image_activ.url }}" alt="{{ atividade.title_activ }}">
+                {% endif %}
+
+                <a href="#" class="more-link">More</a>
+            </div>
+        {% empty %}
+            <p>Nenhuma atividade encontrada.</p>
+        {% endfor %}
+
+        <!-- PAGINAÇÃO -->
+        <div class="pagination" style="text-align:center; margin-top:20px;">
+            {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn">⏮ First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn">⬅ Prev</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn">Next ➡</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn">Last ⏭</a>
+            {% endif %}
+        </div>  
+
+        <!--VOLTAR PARA PAGINA PRINCIPAL-->
+        <div style="text-align:center;">
+            <a href="{% url 'home_my_profile_django' %}" class="back-btn">⬅ Back to Portfolio</a>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,8 +1,15 @@
 from django.contrib import admin
-from .models import My_projects
+from .models import MyProjects
+from .models import MyActivities
+
 
 # Register your models here.
-@admin.register(My_projects)
+@admin.register(MyProjects)
 class ProjetoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'year', 'link_github')
-    search_fields = ('title', 'year')
+    list_display = ('title_project', 'year_project', 'link_github')
+    search_fields = ('title_project', 'year_project')
+
+@admin.register(MyActivities)
+class ActivitiesAdmin(admin.ModelAdmin):
+    list_display = ('title_activ', 'year_activ')
+    search_fields = ('title_activ', 'year_activ')

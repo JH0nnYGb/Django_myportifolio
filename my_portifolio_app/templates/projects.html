@@ -1,16 +1,10 @@
-{% load static %}
-  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Projects - Jhonny</title>
-<link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
-<link rel="stylesheet" href="{% static 'CSS/projects.css' %}">
-</head>
+{% extends 'base_ expand.html' %}
 
-<body>
+
+{% block title %}My_Project{% endblock %}
+
+{% block content %}
+
 <div class="container">
 
   <div class="intro">
@@ -23,7 +17,7 @@
     <div class="card">
       <div class="card-header">
         <div>
-          <div class="card-title">{{ projects.title }}<div/>
+          <div class="card-title">{{ projects.title_project }}<div/>
           <div class="card-subtitle">Web Project<div/> 
         </div>
         <div class="card-date">{{ projects.year }}</div>
@@ -31,7 +25,7 @@
       <ul class="card-list">
         <li>{{ projects.summary }}</li>
         {% if projeto.imagem %}
-          <li><img scr="{{ projects.imagem.url }}" alt="{{ projects.title}}"> tyle="width:100%; border-radius:8px;"></li>
+          <li><img scr="{{ projects.imagem.url }}" alt="{{ projects.title_project}}"> tyle="width:100%; border-radius:8px;"></li>
         {% endif %}
         <li><a href="{{ projeto.link_github }}" target="_blank" style="color:#4fa3ff;">View on GitHub</a></li>
       </ul>
@@ -63,5 +57,5 @@
   </div>
 
 </div>
-</body>
-</html>
+
+{% endblock content %}
