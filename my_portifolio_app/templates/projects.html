@@ -1,59 +1,70 @@
 {% extends 'base_ expand.html' %}
 
-
 {% block title %}My_Project{% endblock %}
 
 {% block content %}
 
-<div class="container">
+<div class="activities-container">
 
   <div class="intro">
     <h2>🚀 My Projects</h2>
     <p>Here are some of my main projects that combine design, code, and innovation.</p>
   </div>
 
-  <div class="cards">
+  <!-- ✅ grade 2x2 usando seu CSS existente -->
+  <div class="cards-grid">
     {% for projects in page_obj %}
     <div class="card">
       <div class="card-header">
         <div>
-          <div class="card-title">{{ projects.title_project }}<div/>
-          <div class="card-subtitle">Web Project<div/> 
+          <div class="card-title">{{ projects.title_project }}</div>
+          <div class="card-subtitle">Web Project</div>
         </div>
-        <div class="card-date">{{ projects.year }}</div>
+        <div class="card-date">{{ projects.year_project }}</div>
       </div>
+
       <ul class="card-list">
         <li>{{ projects.summary }}</li>
-        {% if projeto.imagem %}
-          <li><img scr="{{ projects.imagem.url }}" alt="{{ projects.title_project}}"> tyle="width:100%; border-radius:8px;"></li>
+
+        {% if projects.image_porject %}
+        <li>
+          <img src="{{ projects.image_porject.url }}" 
+               alt="{{ projects.title_project }}"
+               style="width: 100%; border-radius: 8px;">
+        </li>
         {% endif %}
-        <li><a href="{{ projeto.link_github }}" target="_blank" style="color:#4fa3ff;">View on GitHub</a></li>
+
+        <li>
+          <a href="{{ projects.link_github }}" target="_blank" style="color:#4fa3ff;">
+            View on GitHub
+          </a>
+        </li>
       </ul>
     </div>
-    {% comment %} Se nao haver projetos {% endcomment %}
+
     {% empty %}
-      <p>No projects found.</p> 
+    <p>No projects found.</p>
     {% endfor %}
   </div>
 
-  <!-- PAGINAÇÃO -->
+  <!-- ✅ PAGINAÇÃO -->
   <div class="pagination" style="text-align:center; margin-top:20px;">
-    {% if page_obj.has_previous %}
-      <a href="?page=1" class="btn">⏮ First</a>
-      <a href="?page={{ page_obj.previous_page_number }}" class="btn">⬅ Prev</a>
-    {% endif %}
+      {% if page_obj.has_previous %}
+        <a href="?page=1" class="btn">⏮ First</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn">⬅ Prev</a>
+      {% endif %}
 
-    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+      <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
 
-    {% if page_obj.has_next %}
-      <a href="?page={{ page_obj.next_page_number }}" class="btn">Next ➡</a>
-      <a href="?page={{ page_obj.paginator.num_pages }}" class="btn">Last ⏭</a>
-    {% endif %}
-  </div>  
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn">Next ➡</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn">Last ⏭</a>
+      {% endif %}
+  </div>
 
-  <!--VOLTAR PARA PAGINA PRINCIPAL-->
+  <!-- ✅ VOLTAR PARA HOME -->
   <div style="text-align:center;">
-    <a href="{% url 'home_my_profile_django' %}" class="back-btn">⬅ Back to Portfolio</a>
+    <a href="{% url 'home_my_profile_django' %}" class="back-btn"> Back to Portfolio</a>
   </div>
 
 </div>

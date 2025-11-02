@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import MyProjects
 from .models import MyActivities
+from .models import MyGraduations
 # Create your views here.
 
 def home(request):
@@ -24,4 +25,14 @@ def activities(request):
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'activities.html', {'page_obj': page_obj})
-##
+
+
+def graduations(request):
+    graduation = MyGraduations.objects.all().order_by('-year_start_graduation')
+    pagination = Paginator(graduation, 4)
+
+    page_number = request.GET.get('page')
+    page_obj = pagination.get_page(page_number)
+
+
+    return render(request, 'graduations.html', {'page_obj': page_obj})

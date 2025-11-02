@@ -1,45 +1,71 @@
-{% extends 'base_ expand.html' %} 
+{% extends 'base_ expand.html' %}
 
 {% block title %}My_Activities{% endblock %}
 
 {% block content %}
-    <div class="activities-container">
+
+<div class="activities-container">
+
+    <div class="intro">
+        <h2>📚 My Activities</h2>
+        <p>Here are some activities, experiences and projects I've been part of.</p>
+    </div>
+
+    <!-- ✅ Usa a mesma grade 2x2 dos projetos -->
+    <div class="cards-grid">
         {% for atividade in page_obj %}
-            <div class="activity-card">
-                <div class="activity-header">
-                    <h2>{{ atividade.title_activ }}</h2>
-                    <span class="year">{{ atividade.year_activ }}</span>
+        <div class="card">
+
+            <div class="card-header">
+                <div>
+                    <div class="card-title">{{ atividade.title_activ }}</div>
+                    <div class="card-subtitle">Activity</div>
                 </div>
-                <p class="summary">{{ atividade.summary_activ }}</p>
+                <div class="card-date">{{ atividade.year_activ }}</div>
+            </div>
+
+            <ul class="card-list">
+                <li>{{ atividade.summary_activ }}</li>
 
                 {% if atividade.image_activ %}
-                    <img src="{{ atividade.image_activ.url }}" alt="{{ atividade.title_activ }}">
+                <li>
+                    <img src="{{ atividade.image_activ.url }}"
+                         alt="{{ atividade.title_activ }}"
+                         style="width: 100%; border-radius: 8px;">
+                </li>
                 {% endif %}
 
-                <a href="#" class="more-link">More</a>
-            </div>
-        {% empty %}
-            <p>Nenhuma atividade encontrada.</p>
-        {% endfor %}
+                <li>
+                    <a href="#" style="color:#4fa3ff;">More</a>
+                </li>
+            </ul>
 
-        <!-- PAGINAÇÃO -->
-        <div class="pagination" style="text-align:center; margin-top:20px;">
-            {% if page_obj.has_previous %}
-            <a href="?page=1" class="btn">⏮ First</a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn">⬅ Prev</a>
-            {% endif %}
-
-            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-
-            {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn">Next ➡</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn">Last ⏭</a>
-            {% endif %}
-        </div>  
-
-        <!--VOLTAR PARA PAGINA PRINCIPAL-->
-        <div style="text-align:center;">
-            <a href="{% url 'home_my_profile_django' %}" class="back-btn">⬅ Back to Portfolio</a>
         </div>
+        {% empty %}
+        <p>No activities found.</p>
+        {% endfor %}
     </div>
+
+    <!-- ✅ PAGINAÇÃO -->
+    <div class="pagination" style="text-align:center; margin-top:20px;">
+        {% if page_obj.has_previous %}
+        <a href="?page=1" class="back-btn">⏮ First</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="back-btn">⬅ Prev</a>
+        {% endif %}
+
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="back-btn">Next ➡</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="back-btn">Last ⏭</a>
+        {% endif %}
+    </div>
+
+    <!-- ✅ VOLTAR PARA HOME -->
+    <div style="text-align:center;">
+        <a href="{% url 'home_my_profile_django' %}" class="back-btn"> Back to Portfolio</a>
+    </div>
+
+</div>
+
 {% endblock content %}
